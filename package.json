@@ -1,0 +1,61 @@
+{
+  "name": "jsontranslator",
+  "version": "0.1.0",
+  "description": "Batch-translate JSON key/value strings into multiple locales via the OpenAI chat API, preserving ICU-style placeholders.",
+  "keywords": [
+    "translate",
+    "translation",
+    "i18n",
+    "localization",
+    "json",
+    "openai",
+    "chatgpt",
+    "gpt",
+    "cli",
+    "batch"
+  ],
+  "license": "MIT",
+  "author": "sedlukha",
+  "homepage": "https://github.com/sedlukha/jsontranslator#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sedlukha/jsontranslator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sedlukha/jsontranslator/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "jsontranslator": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.build.json && node scripts/post-build.js",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "rimraf": "^6.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
